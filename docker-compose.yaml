@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  pantau-korupsi-app:
+    container_name: 'pantau-korupsi-app'
+    build: ./
+    ports:
+      - "8282:8000"
+    volumes:
+      - ./:/app
+    networks:
+      - pantau-korupsi-networks
+  pantau-korupsi-db:
+    container_name: 'pantau-korupsi-db'
+    image: mongo:latest
+    ports:
+      - "8585:27017" 
+    environment:
+      - MONGO_INITDB_DATABASE=pantau_korupsi_db
+    networks:
+      - pantau-korupsi-networks
+    volumes:
+      - ./:/app
+
+networks:
+  pantau-korupsi-networks:
+    name: pantau-korupsi-networks
