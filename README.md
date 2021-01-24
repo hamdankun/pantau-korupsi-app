@@ -6,7 +6,7 @@ Aplikasi Pantau Korupsi adalah sebuah aplikasi berbasis web yang menampilkan gra
 - Menggunakan Bahasa Pemrograman PHP
 - Menggunakan Laravel Framework
 - Menggunakan MongoDb sebagai Database
-- Menggunakan ChartJS untuk visualisasi dATA
+- Menggunakan ChartJS untuk visualisasi Data
 
 ## Cara Menjalankan Aplikasi
 
@@ -16,7 +16,7 @@ Aplikasi Pantau Korupsi adalah sebuah aplikasi berbasis web yang menampilkan gra
 `
 composer install --ignore-platform-reqs --no-interaction
 `
-- jalankan aplikasi dengan docker-composer
+- jalankan aplikasi dengan docker-compose
 `
 docker-composer up --build
 `
