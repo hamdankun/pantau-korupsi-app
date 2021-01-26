@@ -28,17 +28,17 @@
 		var jumlahNilaiSuap = JSON.parse('{!! json_encode($nilai_suap) !!}');
 		var tahun = JSON.parse('{!! json_encode($tahun) !!}');
 
-		defineLineChartGroupByYear('kasusKorupsiPertahunChart', jumlahKasus, '# Jumlah Kasus Korupsi Dari Tahun 2016-2020');
+		defineLineChartGroupByYear('kasusKorupsiPertahunChart', jumlahKasus, '# Jumlah Kasus Korupsi Dari Tahun 2016-2020', 'Jumlah Kasus');
 
-		defineLineChartGroupByYear('jumlahTersangkaPertahunChart', jumlahTersangka, '# Jumlah Tersangka Kasus Korupsi Dari Tahun 2016-2020');
+		defineLineChartGroupByYear('jumlahTersangkaPertahunChart', jumlahTersangka, '# Jumlah Tersangka Kasus Korupsi Dari Tahun 2016-2020', 'Jumlah Tersangka');
 
-		defineLineChartGroupByYear('jumlahNilaiKerugianPertahunChart', jumlahNilaiKerugian, '# Jumlah Nilai Kerugian Dari Tahun 2016-2020');
+		defineLineChartGroupByYear('jumlahNilaiKerugianPertahunChart', jumlahNilaiKerugian, '# Jumlah Nilai Kerugian Dari Tahun 2016-2020', 'Jumlah Nilai Kerugian');
 
-		defineLineChartGroupByYear('jumlahNilaiSuapPertahunChart', jumlahNilaiSuap, '# Jumlah Nilai Suap Dari Tahun 2016-2020');
+		defineLineChartGroupByYear('jumlahNilaiSuapPertahunChart', jumlahNilaiSuap, '# Jumlah Nilai Suap Dari Tahun 2016-2020', 'Jumlah Nilai Suap');
 
 		defineBarChartGroupByYear('groupKasusPertahunChart');
 
-		function defineLineChartGroupByYear(selectorId, data, label) {
+		function defineLineChartGroupByYear(selectorId, data, label, toolTipLabel) {
 			var ctx = document.getElementById(selectorId);
 			var chart = new Chart(ctx, {
 			    type: 'line',
@@ -72,7 +72,7 @@
 			    	tooltips: {
 			            callbacks: {
 			                label: function(tooltipItem, data) {
-			                    return 'Jumlah Kasus : ' + formatCurrencyIndo(tooltipItem.yLabel);
+			                    return toolTipLabel + ' : ' + formatCurrencyIndo(tooltipItem.yLabel);
 			                }
 			            }
 			        },
